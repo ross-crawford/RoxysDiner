@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+        <br />
+        <h1>Roxy's Diner</h1>
+        <hr />
+        <p class="lead">Reservation Management Suite</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-center">
+            <img class="card-img-top" src="~/Content/img/booking.jpg" alt="Booking" />
+            <div class="card-body">
+                <h5 class="card-title">Bookings</h5>
+                <p class="card-text">
+                    Head over to the bookings section to view all of your restaurants upcoming reservations,
+                    make new bookings, and manage your existing ones.
+                </p>
+                @Html.ActionLink("Bookings", "Index", "Booking", new { area = "" }, new { @class = "btn btn-primary" } )
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <img class="card-img-top" src="~/Content/img/diner.jpg" alt="Diner" />
+            <div class="card-body">
+                <h5 class="card-title">Table Plan</h5>
+                <p class="card-text">
+                    Need to see an overview of your restaurant's table layout?
+                    Forgot which table is where? Need to know how many people can sit at a table? Check out the table plan!
+                </p>
+                @Html.ActionLink("Table Plan", "TablePlan", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <img class="card-img-top" src="~/Content/img/register.jpg" alt="Register" />
+            <div class="card-body">
+                <h5 class="card-title">Register</h5>
+                <p class="card-text">
+                    Don't have an account yet? Head to the Register page to create a new account and start managing your restaurant today!
+                </p>
+                @Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+<br />

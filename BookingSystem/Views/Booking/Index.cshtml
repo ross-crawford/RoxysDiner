@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BookingSystem.Models.BookingModel>
+
+@{
+    ViewBag.Title = "Bookings";
+}
+<br />
+<h2>Bookings</h2>
+<div class="row">
+    <div class="col-md-4">
+        <p class="lead">
+            List of all upcoming bookings
+        </p>
+    </div>
+    <div class="col-md-4">
+        @*using (Html.BeginForm())
+            {
+            <p>
+                <input id="SearchString" name="SearchString" type="date" />
+                <input type="submit" value="Search" class="btn btn-sm" />
+            </p>
+            } *@
+    </div>
+    <div class="col-md-4">
+        <div class="float-right">
+            <p>
+                @Html.ActionLink("Create New", "Create", "Customer", new { @class = "btn btn-outline-secondary" })
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table.TableNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartySize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TableAllocation)
+        </th>
+        <th class="text-right">
+            Options
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table.TableNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartySize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TableAllocation)
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookingId }, new { @class = "btn btn-sm btn-outline-secondary" })
+                @Html.ActionLink("Details", "Details", new { id = item.BookingId }, new { @class = "btn btn-sm btn-outline-secondary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookingId }, new { @class = "btn btn-sm btn-outline-secondary" })
+            </td>
+        </tr>
+    }
+
+</table>

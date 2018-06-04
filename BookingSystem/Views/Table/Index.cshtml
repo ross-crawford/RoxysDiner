@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BookingSystem.Models.TableModel>
+
+@{
+    ViewBag.Title = "Tables";
+}
+<br />
+<h2>Tables</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p class="lead">
+            List of all tables in the restaurant
+        </p>
+    </div>
+    <div class="col-md-6">
+        <div class="float-right">
+            <p>
+                @Html.ActionLink("Create New", "Create", "Table", new { @class = "btn btn-outline-secondary" })
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TableNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TableCapacity)
+        </th>
+        <th class="text-right">
+            Options
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableCapacity)
+        </td>
+        <td class="text-right">
+            @Html.ActionLink("Edit", "Edit", new { id=item.TableId }, new { @class = "btn btn-sm btn-outline-secondary" })
+            @Html.ActionLink("Details", "Details", new { id=item.TableId }, new { @class = "btn btn-sm btn-outline-secondary" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.TableId }, new { @class = "btn btn-sm btn-outline-secondary" })
+        </td>
+    </tr>
+}
+
+</table>
